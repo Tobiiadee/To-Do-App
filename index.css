@@ -1,0 +1,353 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    /* outline: 1px solid; */
+}
+
+:root {
+    --btn-txt : #4a4ac4;
+    --btn-clr: #a1a1da;
+}
+
+body {
+    /* overflow: hidden; */
+    background-color: #fff;
+    background: url(images/mariola-grobelska-n3JPNo11Aac-unsplash.jpg);
+    background-size: cover;
+}
+
+h2, .top-date, .calendar {
+    color: #fff;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    justify-content: space-between;
+    margin: 0 ;
+    padding: 1rem 1rem 0 ;
+
+    gap: 1rem;
+
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.search {
+    display: block;
+    
+    width: 90vw;
+    border-radius: 20px;
+    border: none;
+
+    margin: 0 auto 1rem;
+    padding: .8rem 0.5rem;
+
+    background-color: rgba(82, 80, 80, 0.8);
+    color: #fff;
+
+    font-size: 1.2rem;
+}
+
+.search::placeholder {
+    color: #000;
+    font-style: italic;
+}
+
+.search:focus {
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+}
+
+.button-flex {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-bottom: 1rem;
+    margin-top: 11rem;
+}
+
+.button-flex .task-button {
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    border: none;
+
+    background-color: var(--btn-clr);
+    color: var(--btn-txt);
+
+    font-weight: 700;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .8),
+    -5px -5px 5px rgba(0, 0, 0, .8);
+}
+
+.button-flex .note-button {
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    border: none;
+
+    font-weight: 700;
+
+    background-color: var(--btn-clr);
+    color: var(--btn-txt);
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .8),
+    -5px -5px 5px rgba(0, 0, 0, .8);
+}
+
+.button-flex .note-button:active, :focus {
+    background-color: var(--btn-txt);
+    color: #fff;
+}
+.button-flex .task-button:active, :focus {
+    background-color: var(--btn-txt);
+    color: #fff;
+}
+
+.main-submit {
+    background-color: var(--btn-txt);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+   
+    width: 90px;
+    aspect-ratio: 1/1;
+    border: none;
+    border-radius: 50%;
+
+    left: 40%;
+    margin-bottom: 1rem;
+
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    position: fixed;
+    bottom: -20px;
+    left: -30px;
+    right: 50%;
+    transform: translate(-50%);
+
+    z-index: 2;
+}
+
+.main-submit .add {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.main-submit .add::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+
+    transform: rotate(90deg);
+}
+
+.main-submit:focus ~ .transform {
+    display: block;
+    /* transform: scaleY(0.5);
+    transition: transform 2s ease-in; */
+    transform-origin: bottom;
+
+    animation-name: transform;
+    animation-iteration-count: 1turn;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes transform {
+    0% {transform: scaleY(0);
+    opacity: 0;}
+    25% {transform: scaleY(0.3);
+    opacity: 0.5;}
+    50% {transform: scaleY(0.5);
+    opacity: 1;}
+    75% {transform: scaleY(0.8);}
+    100% {transform: scaleY(1);}
+
+}
+
+.task-out {
+    display: grid;
+    place-content: center;
+    
+    margin-top: 2rem;
+    
+}
+
+.task-out .task-list {
+    width: 100%;
+    max-width: 600px;
+    
+
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .8),
+    -10px -10px 10px rgba(0, 0, 0, .8);
+}
+
+.task-out .task-list .task-title {
+    width: 85vw;
+    max-width: 500px;
+    margin-bottom: 0.5rem;
+    padding: 0.9rem 0.5rem;
+
+    margin: 0.5rem 1.5rem 0.5rem;
+
+    appearance: none;
+    border: none;
+    outline: none;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;    
+}
+
+.task-out .task-list .task {
+    width: 85vw;
+    max-width: 500px;
+    padding: 0.3rem 0.5rem;
+
+    margin: -0.6rem 1.5rem 0.5rem;
+
+    appearance: none;
+    border: none;
+    outline: none;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+}
+
+.task-out .task-list .task-title:focus {
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+}
+.task-out .task-list .task:focus {
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+}
+
+.transform {
+    
+    background-color: var(--btn-txt);
+
+    display: flex;
+    flex-direction: column;
+    /* border-top: 1px solid; */
+    border-radius: 45px;
+    width: 100%;
+    height: 80vh;
+
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
+
+    margin-bottom: -2rem;
+
+    /* transition: 2s;
+    display: none; */
+}
+
+
+.transform .task-form {
+    width: 100%;
+}
+
+.transform .span {
+    display: block;
+    margin: 0.5rem auto;
+    width: 50px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.transform .task-in-title {
+    width: 90%;
+    margin: 2rem 1rem 0;
+    padding: 1.3rem 0.5rem;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, .3);
+
+    font-size: 1.4rem;
+    /* font-style: italic; */
+}
+
+.transform .task-in {
+    width: 90%;
+    margin: 1rem 1rem 2rem;
+    padding: 1.3rem 0.5rem;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, .3);
+
+    font-size: 1.2rem;
+    /* font-style: italic; */
+}
+
+.transform .task-in::placeholder {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+.transform .task-in-title::placeholder {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.transform .task-form .not-task {
+    color: red;
+
+    margin: 0.5rem 6rem 0;
+
+    font-size: 1.2rem;
+}
+
+.transform .save {
+    display: block;
+
+    margin: 2rem auto 1rem;
+    padding: 1rem 3rem;
+
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+    color: var(--btn-txts);
+    font-weight: 900;
+}
