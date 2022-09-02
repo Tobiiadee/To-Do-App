@@ -76,7 +76,47 @@ addTask.addEventListener('click', () => {
          taskList.appendChild(taskInput);
          taskInput.innerHTML = task;
 
-         console.log(title);
+         let action = document.createElement('div');
+         action.classList.add('action');
+         taskList.appendChild(action);
+
+         let taskEdit = document.createElement('button');
+         taskEdit.classList.add('edit');
+         action.appendChild(taskEdit);
+         taskEdit.innerHTML = "Edit";
+
+         taskEdit.addEventListener('click', () => {
+
+            if (taskEdit.innerHTML == "Edit") {
+            taskInput.removeAttribute('readonly');
+            taskInput.focus();
+
+            taskTitle.removeAttribute('readonly');
+            taskTitle.focus();
+
+            taskEdit.innerHTML = "save";
+          }
+
+          else {
+            taskInput.setAttribute('readonly', 'readonly');
+
+            taskTitle.setAttribute('readonly', 'readonly');
+            
+            taskEdit.innerHTML = "Edit";
+          }
+      
+         })
+
+         let taskDelete = document.createElement('button');
+         taskDelete.classList.add('delete');
+         taskDelete.innerHTML = "Delete Task";
+         action.appendChild(taskDelete);
+
+         taskDelete.addEventListener('click', () => {
+
+            taskOut.remove();
+
+         });
          
 
 });   
